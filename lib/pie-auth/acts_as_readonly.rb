@@ -1,4 +1,4 @@
-module ActsAsReadonly
+﻿module ActsAsReadonly
   def self.included(base)
     base.extend(ClassMethods)
   end

@@ -1,4 +1,4 @@
-module AuthenticatedSystem
+ï»¿module AuthenticatedSystem
 
   private
   # Returns true or false if the user is logged in.
@@ -18,7 +18,7 @@ module AuthenticatedSystem
   end
 
   # Store the given user id in the session.
-  # Éè¶¨Ö¸¶¨¶ÔÏóÎªµ±Ç°»á»°ÓÃ»§¶ÔÏó£¬²¢½«»ù±¾ĞÅÏ¢´«Èësession±£´æ
+  # è®¾å®šæŒ‡å®šå¯¹è±¡ä¸ºå½“å‰ä¼šè¯ç”¨æˆ·å¯¹è±¡ï¼Œå¹¶å°†åŸºæœ¬ä¿¡æ¯ä¼ å…¥sessionä¿å­˜
   def current_user=(user)
     session[:user_id] = user ? user.id : nil
     @current_user = user || false
@@ -76,7 +76,7 @@ module AuthenticatedSystem
         redirect_to login_path
       end
       format.xml do
-        # ½øĞĞappµÄÈÏÖ¤
+        # è¿›è¡Œappçš„è®¤è¯
       end
       format.any do
         request_http_basic_authentication 'Web Password'
