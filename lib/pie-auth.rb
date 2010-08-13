@@ -1,3 +1,5 @@
 require 'rubygems'
-require 'pie-auth/acts_as_readonly'
+require 'pie-auth/set_readonly'
 require 'pie-auth/authenticated_system'
+require 'pie-auth/preference'
+require 'pie-auth/user_base'
