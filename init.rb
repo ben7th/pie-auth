@@ -1,1 +1,1 @@
-﻿require "pie-auth"
+require "pie-auth"

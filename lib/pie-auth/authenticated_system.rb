@@ -1,4 +1,4 @@
-ï»¿module AuthenticatedSystem
+module AuthenticatedSystem
 
   private
   # Returns true or false if the user is logged in.
@@ -6,24 +6,24 @@
   def logged_in?
     !!current_user
   end
-  
+
   def admin_authorization
     logged_in? && current_user.name=='admin'
   end
 
-  # Accesses the current user from the session. 
+  # Accesses the current user from the session.
   # Future calls avoid the database because nil is not equal to false.
   def current_user
     @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || login_from_api) unless @current_user == false
   end
 
   # Store the given user id in the session.
-  # è®¾å®šæŒ‡å®šå¯¹è±¡ä¸ºå½“å‰ä¼šè¯ç”¨æˆ·å¯¹è±¡ï¼Œå¹¶å°†åŸºæœ¬ä¿¡æ¯ä¼ å…¥sessionä¿å­˜
+  # Éè¶¨Ö¸¶¨¶ÔÏóÎªµ±Ç°»á»°ÓÃ»§¶ÔÏó£¬²¢½«»ù±¾ÐÅÏ¢´«Èësession±£´æ
   def current_user=(user)
     session[:user_id] = user ? user.id : nil
     @current_user = user || false
   end
-  
+
   # Check if the user is authorized
   #
   # Override this method in your controllers if you want to restrict access
@@ -76,14 +76,14 @@
         redirect_to login_path
       end
       format.xml do
-        # è¿›è¡Œappçš„è®¤è¯
+        # ½øÐÐappµÄÈÏÖ¤
       end
       format.any do
         request_http_basic_authentication 'Web Password'
       end
     end
   end
-  
+
   # Store the URI of the current request in the session.
   #
   # We can return to this location by calling #redirect_back_or_default.
@@ -97,7 +97,7 @@
     redirect_to(session[:return_to] || default,:status=>302)
     session[:return_to] = nil
   end
-  
+
   # Inclusion hook to make #current_user and #logged_in?
   # available as ActionView helper methods.
   def self.included(base)
