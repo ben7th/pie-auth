@@ -5,14 +5,9 @@ module ActsAsReadonly
   
   module ClassMethods
     def acts_as_readonly(boolean)
-      if boolean
-        define_method "readonly?" do
-          true
-        end
-      else
-        define_method "readonly?" do
-          old_readonly?
-        end
+      define_method "readonly?" do
+        return true if boolean
+        old_readonly?
       end
     end
   end
