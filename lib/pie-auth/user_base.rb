@@ -9,7 +9,7 @@ class UserBase < ActiveRecord::Base
     return pref
   end
 
-  # ¸ù¾Ý´«ÈëµÄÓÊÏäÃûºÍÃÜÂë½øÐÐÓÃ»§ÑéÖ¤
+  # æ ¹æ®ä¼ å…¥çš„é‚®ç®±åå’Œå¯†ç è¿›è¡Œç”¨æˆ·éªŒè¯
   def self.authenticate(email,password)
     user=User.find_by_email(email)
     if user
@@ -21,7 +21,7 @@ class UserBase < ActiveRecord::Base
     user
   end
 
-  # µç×ÓÓÊÏä»òÓÃ»§Ãû ÈÏÖ¤
+  # ç”µå­é‚®ç®±æˆ–ç”¨æˆ·å è®¤è¯
   def self.authenticate2(email_or_name,password)
     user = self.authenticate(email_or_name,password)
     if user.blank?
@@ -36,11 +36,11 @@ class UserBase < ActiveRecord::Base
     return user
   end
 
-  # ÒÔÏÂµÄÈô¸É¸ö±äÁ¿ÒÔ¼°·½·¨ÎªÈÏÖ¤²¿·ÖÏà¹Ø´úÂë
-  # cookieµÇÂ½ÁîÅÆÖÐÓÃµ½µÄ¼ÓÃÜ×Ö·û´®
+  # ä»¥ä¸‹çš„è‹¥å¹²ä¸ªå˜é‡ä»¥åŠæ–¹æ³•ä¸ºè®¤è¯éƒ¨åˆ†ç›¸å…³ä»£ç 
+  # cookieç™»é™†ä»¤ç‰Œä¸­ç”¨åˆ°çš„åŠ å¯†å­—ç¬¦ä¸²
   @@token_key='onlyecho'
-  
-  # ÑéÖ¤cookiesÁîÅÆ
+
+  # éªŒè¯cookiesä»¤ç‰Œ
   def self.authenticate_cookies_token(token)
     t=token.split(':')
     user=User.find_by_name(t[0])
@@ -52,14 +52,14 @@ class UserBase < ActiveRecord::Base
     user
   end
 
-  # Ê¹ÓÃSHA1Ëã·¨£¬¸ù¾ÝÄÚ²¿ÃÜÔ¿ºÍÃ÷ÎÄÃÜÂë¼ÆËã¼ÓÃÜºóµÄÃÜÂë
+  # ä½¿ç”¨SHA1ç®—æ³•ï¼Œæ ¹æ®å†…éƒ¨å¯†é’¥å’Œæ˜Žæ–‡å¯†ç è®¡ç®—åŠ å¯†åŽçš„å¯†ç 
   private
   def self.encrypted_password(password,salt)
     string_to_hash = password + 'jerry_sun' + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
 
-  # Ê¹ÓÃSHA1Ëã·¨Éú³ÉÁîÅÆ×Ö·û´®
+  # ä½¿ç”¨SHA1ç®—æ³•ç”Ÿæˆä»¤ç‰Œå­—ç¬¦ä¸²
   private
   def self.hashed_token_string(name,hashed_password)
     Digest::SHA1.hexdigest(name+hashed_password+@@token_key)
