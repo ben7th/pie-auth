@@ -1,5 +1,8 @@
 module SetReadonly
   def self.included(base)
+    base.class_eval do
+      alias :old_readonly? :readonly?
+    end
     base.extend(ClassMethods)
   end
   
@@ -11,9 +14,4 @@ module SetReadonly
       end
     end
   end
-end
-
-class ActiveRecord::Base
-  alias :old_readonly? :readonly?
-  include SetReadonly
 end
