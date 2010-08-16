@@ -5,6 +5,8 @@ module PieAuth
       ActiveRecord::Base.send :include, SetReadonly
       require 'pie-auth/build_database_connection'
       ActiveRecord::Base.send :include, BuildDatabaseConnection
+      require 'pie-auth/authenticated_system'
+      ActionController::Base.send :include,AuthenticatedSystem
     end
   end
 end
@@ -13,7 +15,6 @@ if defined? Rails
   PieAuth.auth_include_modules if defined? ActiveRecord::Base
 end
 
-require 'pie-auth/authenticated_system'
 require 'pie-auth/core_service'
 CoreService.reset_config
 require 'pie-auth/preference'

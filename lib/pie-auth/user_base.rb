@@ -1,7 +1,7 @@
 require 'digest/sha1'
 class UserBase < ActiveRecord::Base
-  set_table_name 'users'
   set_readonly true
+  build_database_connection(CoreService::MASTER_NAME,{:table_name=>"users"})
 
   def preference
     pref = Preference.find_by_user_id(self.id)

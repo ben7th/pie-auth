@@ -10,8 +10,8 @@ module BuildDatabaseConnection
     def build_database_connection(name,options={})
       config = YAML.load(CoreService.project(name).database)
       establish_connection(config)
-      unless options['table_name'].blank?
-        set_table_name(options['table_name'])
+      unless options[:table_name].blank?
+        set_table_name(options[:table_name])
       end
     end
   end
