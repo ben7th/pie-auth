@@ -1,9 +1,9 @@
 require 'digest/sha1'
 class UserBase < ActiveRecord::Base
   set_readonly true
-  build_database_connection(CoreService::MASTER_NAME,{:table_name=>"users"})
+  build_database_connection(CoreService::USER_AUTH,{:table_name=>"users"})
 
-  SETTINGS = YAML.load(CoreService.project(CoreService::MASTER_NAME).settings)
+  SETTINGS = YAML.load(CoreService.project(CoreService::USER_AUTH).settings)
   LOGO_PATH_ROOT = SETTINGS["user_logo_file_path_root"]
   LOGO_URL_ROOT = SETTINGS["user_logo_file_url_root"]
 
