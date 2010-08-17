@@ -65,4 +65,26 @@ class UserBase < ActiveRecord::Base
     Digest::SHA1.hexdigest(name+hashed_password+@@token_key)
   end
 
+  if RAILS_ENV == "test" && !self.table_exists?
+    self.connection.create_table :users, :force => true do |t|
+      t.string   "name",                      :default => "", :null => false
+      t.string   "hashed_password",           :default => "", :null => false
+      t.string   "salt",                      :default => "", :null => false
+      t.string   "email",                     :default => "", :null => false
+      t.string   "sign"
+      t.string   "activation_code"
+      t.string   "logo_file_name"
+      t.string   "logo_content_type"
+      t.integer  "logo_file_size"
+      t.datetime "logo_updated_at"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+      t.datetime "activated_at"
+      t.string   "reset_password_code"
+      t.datetime "reset_password_code_until"
+      t.boolean  "v09"
+      t.boolean  "v09_up"
+      t.datetime "last_login_time"
+    end
+  end
 end
