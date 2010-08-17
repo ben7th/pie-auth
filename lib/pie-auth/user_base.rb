@@ -3,9 +3,14 @@ class UserBase < ActiveRecord::Base
   set_readonly true
   build_database_connection(CoreService::USER_AUTH,{:table_name=>"users"})
 
-  SETTINGS = YAML.load(CoreService.project(CoreService::USER_AUTH).settings)
-  LOGO_PATH_ROOT = SETTINGS["user_logo_file_path_root"]
-  LOGO_URL_ROOT = SETTINGS["user_logo_file_url_root"]
+  if RAILS_ENV == "test"
+    LOGO_PATH_ROOT = "/tmp/"
+    LOGO_URL_ROOT = "http://localhost"
+  else
+    SETTINGS = YAML.load(CoreService.project(CoreService::USER_AUTH).settings)
+    LOGO_PATH_ROOT = SETTINGS["user_logo_file_path_root"]
+    LOGO_URL_ROOT = SETTINGS["user_logo_file_url_root"]
+  end
 
   # logo
   @logo_path = "#{LOGO_PATH_ROOT}:class/:attachment/:id/:style/:basename.:extension"
