@@ -7,6 +7,8 @@ module PieAuth
       ActiveRecord::Base.send :include, BuildDatabaseConnection
       require 'pie-auth/authenticated_system'
       ActionController::Base.send :include,AuthenticatedSystem
+      require "paperclip"
+      ActiveRecord::Base.send :include, Paperclip
     end
   end
 end
@@ -15,7 +17,6 @@ if defined? Rails
   PieAuth.auth_include_modules if defined? ActiveRecord::Base
 end
 
-require "paperclip"
 require 'pie-auth/core_service'
 CoreService.reset_config
 require 'pie-auth/preference'
