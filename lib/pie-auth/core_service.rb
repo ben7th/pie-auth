@@ -22,7 +22,7 @@ class CoreService < ActiveResource::Base
     end
   
     def project(project_name)
-      return self.new(:name=>self.name,:url=>self.url,:database=>nil) if RAILS_ENV == "test"
+      return self.new(:name=>self.name,:url=>self.url,:database=>nil,:settings=>PROJECT_CONFIG) if RAILS_ENV == "test"
       # 如果是管理配置文件的工程，则直接从数据库中获取配置信息
       return find_or_create_master_config if is_master?
       CoreService.find(project_name)
@@ -35,8 +35,8 @@ class CoreService < ActiveResource::Base
 
     def find_or_create_master_config
       pj = ProjectConfig.find_by_name(name)
-      return ProjectConfig.create!(:name=>name,:url=>url,:database=>database).reload if pj.blank?
-      return pj.reload if pj.update_attributes!(:url=>url,:database=>database)
+      return ProjectConfig.create!(:name=>name,:url=>url,:database=>database,:settings=>PROJECT_CONFIG).reload if pj.blank?
+      return pj.reload if pj.update_attributes!(:url=>url,:database=>database,:settings=>PROJECT_CONFIG)
     end
 
     # 判断这个工程 是不是  管理工程

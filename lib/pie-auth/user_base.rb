@@ -3,6 +3,19 @@ class UserBase < ActiveRecord::Base
   set_readonly true
   build_database_connection(CoreService::MASTER_NAME,{:table_name=>"users"})
 
+  SETTINGS = YAML.load(CoreService.project(CoreService::MASTER_NAME).settings)
+  LOGO_PATH_ROOT = SETTINGS["user_logo_file_path_root"]
+  LOGO_URL_ROOT = SETTINGS["user_logo_file_url_root"]
+
+  # logo
+  @logo_path = "#{LOGO_PATH_ROOT}:class/:attachment/:id/:style/:basename.:extension"
+  @logo_url = "#{LOGO_URL_ROOT}:class/:attachment/:id/:style/:basename.:extension"
+  has_attached_file :logo,:styles => {:raw=>'500x500>',:medium=>"96x96#",:normal=>"48x48#",:tiny=>'32x32#',:mini=>'24x24#' },
+    :path => @logo_path,
+    :url => @logo_url,
+    :default_url => "/images/logo/default_:class_:style.png",
+    :default_style => :normal
+
   def preference
     pref = Preference.find_by_user_id(self.id)
     pref = Preference.create(:user_id=>self.id) if pref.blank?

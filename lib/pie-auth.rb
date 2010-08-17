@@ -15,6 +15,7 @@ if defined? Rails
   PieAuth.auth_include_modules if defined? ActiveRecord::Base
 end
 
+require "paperclip"
 require 'pie-auth/core_service'
 CoreService.reset_config
 require 'pie-auth/preference'
