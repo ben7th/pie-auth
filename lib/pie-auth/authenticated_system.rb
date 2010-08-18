@@ -91,6 +91,10 @@ module AuthenticatedSystem
     session[:return_to] = request.request_uri
   end
 
+  def store_location_with_domain
+    session[:return_to] = request.url
+  end
+
   # Redirect to the URI stored by the most recent store_location call or
   # to the passed default.
   def redirect_back_or_default(default)
