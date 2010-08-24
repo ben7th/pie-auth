@@ -21,6 +21,12 @@ class UserBase < ActiveRecord::Base
     :default_url => "/images/logo/default_:class_:style.png",
     :default_style => :normal
 
+  after_create :create_self_preference
+  def create_self_preference
+    preference
+    return true
+  end
+  
   def preference
     pref = Preference.find_by_user_id(self.id)
     pref = Preference.create(:user_id=>self.id) if pref.blank?
