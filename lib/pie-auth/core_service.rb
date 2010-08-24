@@ -22,7 +22,7 @@ class CoreService < ActiveResource::Base
     end
   
     def project(project_name)
-      return self.new(:name=>self.name,:url=>self.url,:database=>nil,:settings=>PROJECT_CONFIG) if RAILS_ENV == "test"
+#      return self.new(:name=>self.name,:url=>self.url,:database=>nil,:settings=>PROJECT_CONFIG) if RAILS_ENV == "test"
       CoreService.find(project_name)
     end
 

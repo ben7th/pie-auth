@@ -9,7 +9,7 @@ module BuildDatabaseConnection
     # class name 有时候会和表名取不一样的。应该允许用户指定连接哪一个表
     def build_database_connection(name,options={})
       database = CoreService.project(name).database
-      if !database.blank?
+      if RAILS_ENV != "test"
         config = YAML.load(database)
         establish_connection(config)
       end
