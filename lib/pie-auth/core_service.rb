@@ -30,5 +30,6 @@ class CoreService < ActiveResource::Base
       return if RAILS_ENV == "test"
       post(:reset_config, :project => {:settings => PROJECT_CONFIG,:database=> database})
     end
+
   end
 end

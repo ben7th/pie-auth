@@ -9,6 +9,8 @@ module PieAuth
       ActionController::Base.send :include,AuthenticatedSystem
       require "paperclip"
       ActiveRecord::Base.send :include, Paperclip
+      require "pie-auth/project_link_module"
+      ActionView::Base.send :include, ProjectLinkModule
     end
   end
 end
