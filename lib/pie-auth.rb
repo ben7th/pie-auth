@@ -23,3 +23,4 @@ require 'pie-auth/core_service'
 CoreService.reset_config
 require 'pie-auth/preference'
 require 'pie-auth/user_base'
+include ProjectLinkModule

@@ -22,13 +22,20 @@ class CoreService < ActiveResource::Base
     end
   
     def project(project_name)
-#      return self.new(:name=>self.name,:url=>self.url,:database=>nil,:settings=>PROJECT_CONFIG) if RAILS_ENV == "test"
+      #      return self.new(:name=>self.name,:url=>self.url,:database=>nil,:settings=>PROJECT_CONFIG) if RAILS_ENV == "test"
       CoreService.find(project_name)
     end
 
     def reset_config
-      return if RAILS_ENV == "test"
-      post(:reset_config, :project => {:settings => PROJECT_CONFIG,:database=> database})
+      begin
+        return if RAILS_ENV == "test"
+        post(:reset_config, :project => {:settings => PROJECT_CONFIG,:database=> database})
+      rescue Exception => ex
+        raise %`
+        "#{ex}"
+        post_site is #{self.class.site}
+        `
+      end
     end
 
   end
