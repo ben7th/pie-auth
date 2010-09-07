@@ -18,7 +18,8 @@ class CoreService < ActiveResource::Base
     end
 
     def database
-      YAML.load_file(Rails.root.join("config/database.yml"))[RAILS_ENV]
+      yml = YAML.load_file(Rails.root.join("config/database.yml"))
+      yml ? yml[RAILS_ENV] : {}
     end
   
     def project(project_name)
