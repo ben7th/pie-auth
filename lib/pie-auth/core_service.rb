@@ -33,7 +33,7 @@ class CoreService < ActiveResource::Base
       rescue Exception => ex
         raise %`
         "#{ex}"
-        post_site is #{self.class.site}
+        post_site is #{self.site}
         `
       end
     end
