@@ -18,8 +18,11 @@ class CoreService < ActiveResource::Base
     end
 
     def database
-      yml = YAML.load_file(Rails.root.join("config/database.yml"))
-      yml ? yml[RAILS_ENV] : {}
+      database_path = File.join(Rails.root,"config/database.yml")
+      if File.exist?(database_path)
+        return YAML.load_file(database_path)
+      end
+      return {}
     end
   
     def project(project_name)
