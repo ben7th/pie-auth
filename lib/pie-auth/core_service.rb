@@ -20,7 +20,7 @@ class CoreService < ActiveResource::Base
     def database
       database_path = File.join(Rails.root,"config/database.yml")
       if File.exist?(database_path)
-        return YAML.load_file(database_path)
+        return YAML.load_file(database_path)[RAILS_ENV]
       end
       return {}
     end
