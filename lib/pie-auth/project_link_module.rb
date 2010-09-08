@@ -1,5 +1,6 @@
 module ProjectLinkModule
-  def pin_url_for(project_name,path)
+  def pin_url_for(project_name,path=nil)
+    path ||= ""
     File.join(CoreService.project(project_name).url,path)
   end
 end
