@@ -73,7 +73,7 @@ module AuthenticatedSystem
       format.html do
         store_location_with_domain
         flash[:notice]=info
-        redirect_to pin_url_for("user_auth")
+        redirect_to pin_url_for("user_auth","login")
       end
       format.xml do
         # 进行app的认证
