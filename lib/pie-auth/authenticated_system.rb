@@ -71,9 +71,9 @@ module AuthenticatedSystem
   def access_denied(info)
     respond_to do |format|
       format.html do
-        store_location
+        store_location_with_domain
         flash[:notice]=info
-        redirect_to login_path
+        redirect_to pin_url_for("user_auth")
       end
       format.xml do
         # 进行app的认证
