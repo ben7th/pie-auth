@@ -1,9 +1,9 @@
 module ProjectLinkModule
   URLS = {
-    "user_auth"=>"http://2010.mindpin.com",
-    "discuss"=>"http://2010.mindpin.com/discuss",
-    "pin-workspace"=>"http://2010.mindpin.com/workspace",
-    "ui"=>"http://ui.mindpin.com"
+    "user_auth"=>"http://2010.mindpin.com/",
+    "discuss"=>"http://2010.mindpin.com/",
+    "pin-workspace"=>"http://2010.mindpin.com/",
+    "ui"=>"http://ui.mindpin.com/"
   }
   
   def pin_url_for(project_name,path=nil)
