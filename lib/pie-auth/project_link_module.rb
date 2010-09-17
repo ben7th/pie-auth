@@ -21,6 +21,7 @@ module ProjectLinkModule
   }
   
   def pin_url_for(project_name,path=nil)
+    path ||= ""
     return File.join(find_site_by_name(project_name),path)
   end
 
