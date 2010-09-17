@@ -1,6 +1,6 @@
 module ProjectLinkModule
   URLS = {
-    "prodeuction"=>{
+    "production"=>{
       "user_auth"=>"http://2010.mindpin.com/",
       "discuss"=>"http://2010.mindpin.com/",
       "pin-workspace"=>"http://2010.mindpin.com/",
@@ -26,7 +26,11 @@ module ProjectLinkModule
   end
 
   def find_site_by_name(project_name)
-    URLS[RAILS_ENV][project_name] || "http://unknow"
+    site = URLS[RAILS_ENV][project_name]
+    if site.blank?
+      raise "没有 project_name 是 #{project_name} 的配置 "
+    end
+    site
   end
 
 end
