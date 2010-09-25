@@ -2,22 +2,22 @@ module ProjectLinkModule
   URLS = {
     "production"=>{
       "user_auth"=>"http://2010.mindpin.com/",
-      "discuss"=>"http://2010.mindpin.com/",
-      "pin-workspace"=>"http://2010.mindpin.com/",
+      "discuss"=>"http://discuss.2010.mindpin.com/",
+      "pin-workspace"=>"http://workspace.2010.mindpin.com/",
       "ui"=>"http://ui.mindpin.com/",
-      "pin-bugs"=>"http://2010.mindpin.com/"},
+      "pin-bugs"=>"http://bugs.2010.mindpin.com/"},
     "development"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
-      "discuss"=>"http://dev.2010.mindpin.com/",
-      "pin-workspace"=>"http://dev.2010.mindpin.com/",
+      "discuss"=>"http://dev.discuss.2010.mindpin.com/",
+      "pin-workspace"=>"http://dev.workspace.2010.mindpin.com/",
       "ui"=>"http://dev.ui.mindpin.com/",
-      "pin-bugs"=>"http://dev.2010.mindpin.com/"},
+      "pin-bugs"=>"http://dev.bugs.2010.mindpin.com/"},
     "test"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
-      "discuss"=>"http://dev.2010.mindpin.com/",
-      "pin-workspace"=>"http://dev.2010.mindpin.com/",
+      "discuss"=>"http://dev.discuss.2010.mindpin.com/",
+      "pin-workspace"=>"http://dev.workspace.2010.mindpin.com/",
       "ui"=>"http://dev.ui.mindpin.com/",
-      "pin-bugs"=>"http://dev.2010.mindpin.com/"}
+      "pin-bugs"=>"http://dev.bugs.2010.mindpin.com/"}
   }
   
   def pin_url_for(project_name,path=nil)
