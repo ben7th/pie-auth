@@ -33,7 +33,6 @@ CoreService.reset_config
 if defined? ActiveRecord::Base
   require 'pie-auth/user_base'
   require 'pie-auth/preference'
-  require 'pie-auth/online_record'
 end
 # 一些 helper 方法
 include ProjectLinkModule
