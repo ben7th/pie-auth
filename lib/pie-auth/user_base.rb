@@ -33,9 +33,6 @@ class UserBase < ActiveRecord::Base
     return pref
   end
 
-  # 在线状态记录
-  has_one :online_record,:dependent => :destroy
-
   # 是否激活
   def activated?
     !activated_at.blank?
