@@ -7,7 +7,9 @@ module ProjectLinkModule
       "ui"=>"http://ui.mindpin.com/",
       "pin-bugs"=>"http://bugs.2010.mindpin.com/",
       "pin-app-adapter"=>"http://app-adapter.2010.mindpin.com/",
-      "pin-share"=>"http://share.2010.mindpin.com/"
+      "pin-share"=>"http://share.2010.mindpin.com/",
+      "pin-mindmap-editor"=>"http://mindmap-editor.2010.mindpin.com/",
+      "pin-mindmap-image-cache"=>"http://mindmap-image-cache.2010.mindpin.com/"
     },
     "development"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
@@ -16,7 +18,9 @@ module ProjectLinkModule
       "ui"=>"http://dev.ui.mindpin.com/",
       "pin-bugs"=>"http://dev.bugs.2010.mindpin.com/",
       "pin-app-adapter"=>"http://dev.app-adapter.2010.mindpin.com/",
-      "pin-share"=>"http://dev.share.2010.mindpin.com/"
+      "pin-share"=>"http://dev.share.2010.mindpin.com/",
+      "pin-mindmap-editor"=>"http://dev.mindmap-editor.2010.mindpin.com/",
+      "pin-mindmap-image-cache"=>"http://dev.mindmap-image-cache.2010.mindpin.com/"
     },
     "test"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
@@ -25,7 +29,9 @@ module ProjectLinkModule
       "ui"=>"http://dev.ui.mindpin.com/",
       "pin-bugs"=>"http://dev.bugs.2010.mindpin.com/",
       "pin-app-adapter"=>"http://dev.app-adapter.2010.mindpin.com/",
-      "pin-share"=>"http://dev.share.2010.mindpin.com/"
+      "pin-share"=>"http://dev.share.2010.mindpin.com/",
+      "pin-mindmap-editor"=>"http://dev.mindmap-editor.2010.mindpin.com/",
+      "pin-mindmap-image-cache"=>"http://dev.mindmap-image-cache.2010.mindpin.com/"
       }
   }
   

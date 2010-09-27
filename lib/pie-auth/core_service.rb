@@ -2,6 +2,7 @@ class CoreService < ActiveResource::Base
 
   PROJECT_CONFIG = YAML.load_file(Rails.root.join("config/project_config.yml"))[RAILS_ENV]
   USER_AUTH = "user_auth"
+  MINDMAP_EDITOR = "pin-mindmap-editor"
   self.site = PROJECT_CONFIG["master_url"]
 
   class << self
