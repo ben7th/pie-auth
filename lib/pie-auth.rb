@@ -36,6 +36,3 @@ if defined? ActiveRecord::Base
 end
 # 一些 helper 方法
 include ProjectLinkModule
-
-# 载入 base_metal 类
-require "base_metal/base_metal"
