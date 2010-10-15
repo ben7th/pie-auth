@@ -10,7 +10,8 @@ module ProjectLinkModule
       "pin-share"=>"http://share.2010.mindpin.com/",
       "pin-mindmap-editor"=>"http://mindmap-editor.2010.mindpin.com/",
       "pin-mindmap-image-cache"=>"http://mindmap-image-cache.2010.mindpin.com/",
-      "pin-macro"=>"http://macro.2010.mindpin.com/"
+      "pin-macro"=>"http://macro.2010.mindpin.com/",
+      "pin-website"=>"http://website.2010.mindpin.com/"
     },
     "development"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
@@ -22,7 +23,8 @@ module ProjectLinkModule
       "pin-share"=>"http://dev.share.2010.mindpin.com/",
       "pin-mindmap-editor"=>"http://dev.mindmap-editor.2010.mindpin.com/",
       "pin-mindmap-image-cache"=>"http://dev.mindmap-image-cache.2010.mindpin.com/",
-      "pin-macro"=>"http://dev.macro.2010.mindpin.com/"
+      "pin-macro"=>"http://dev.macro.2010.mindpin.com/",
+      "pin-website"=>"http://dev.website.2010.mindpin.com/"
     },
     "test"=>{
       "user_auth"=>"http://dev.2010.mindpin.com/",
@@ -34,7 +36,8 @@ module ProjectLinkModule
       "pin-share"=>"http://dev.share.2010.mindpin.com/",
       "pin-mindmap-editor"=>"http://dev.mindmap-editor.2010.mindpin.com/",
       "pin-mindmap-image-cache"=>"http://dev.mindmap-image-cache.2010.mindpin.com/",
-      "pin-macro"=>"http://dev.macro.2010.mindpin.com/"
+      "pin-macro"=>"http://dev.macro.2010.mindpin.com/",
+      "pin-website"=>"http://dev.website.2010.mindpin.com/"
       }
   }
   
