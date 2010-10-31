@@ -69,19 +69,22 @@ module AuthenticatedSystem
   # to access the requested action.  For example, a popup window might
   # simply close itself.
   def access_denied(info)
-    respond_to do |format|
-      format.html do
-        store_location
-        flash[:notice]=info
-        redirect_to login_path
-      end
-      format.xml do
-        # 进行app的认证
-      end
-      format.any do
-        request_http_basic_authentication 'Web Password'
-      end
-    end
+    store_location_with_domain
+    flash[:notice]=info
+    redirect_to pin_url_for("user_auth","login")
+    #    respond_to do |format|
+    #      format.html do
+    #        store_location_with_domain
+    #        flash[:notice]=info
+    #        redirect_to pin_url_for("user_auth","login")
+    #      end
+    #      format.xml do
+    #        # 进行app的认证
+    #      end
+    #      format.any do
+    #        request_http_basic_authentication 'Web Password'
+    #      end
+    #    end
   end
 
   # Store the URI of the current request in the session.

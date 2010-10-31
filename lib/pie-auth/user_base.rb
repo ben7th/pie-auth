@@ -33,6 +33,11 @@ class UserBase < ActiveRecord::Base
     return pref
   end
 
+  # 是否激活
+  def activated?
+    !activated_at.blank?
+  end
+
   # 根据传入的邮箱名和密码进行用户验证
   def self.authenticate(email,password)
     user=User.find_by_email(email)
@@ -106,8 +111,6 @@ class UserBase < ActiveRecord::Base
       t.datetime "activated_at"
       t.string   "reset_password_code"
       t.datetime "reset_password_code_until"
-      t.boolean  "v09"
-      t.boolean  "v09_up"
       t.datetime "last_login_time"
     end
   end
