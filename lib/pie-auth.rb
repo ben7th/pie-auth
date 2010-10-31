@@ -27,11 +27,6 @@ if defined? Rails
 end
 
 require 'pie-auth/core_service'
-begin
-  CoreService.reset_config
-rescue Exception => ex
-  code
-end
 
 # user 信息 需要的类
 if defined? ActiveRecord::Base
@@ -40,3 +35,9 @@ if defined? ActiveRecord::Base
 end
 # 一些 helper 方法
 include ProjectLinkModule
+
+begin
+  CoreService.reset_config
+rescue Exception => ex
+  code
+end
