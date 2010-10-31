@@ -18,6 +18,11 @@ if defined? Rails
 end
 
 require 'pie-auth/core_service'
-CoreService.reset_config
 require 'pie-auth/preference'
 require 'pie-auth/user_base'
+
+begin
+  CoreService.reset_config
+rescue Exception => ex
+  code
+end
