@@ -20,9 +20,7 @@ module AuthenticatedSystem
   # Store the given user id in the session.
   # 设定指定对象为当前会话用户对象，并将基本信息传入session保存
   def current_user=(user)
-    if user.blank?
-      delete_logged_in_for_plugin_token
-    else
+    if !user.blank?
       create_logged_in_for_plugin_token
     end
 
@@ -152,11 +150,8 @@ module AuthenticatedSystem
     end
   end
 
+  # 创建插件cookie
   def create_logged_in_for_plugin_token
-    cookies[:logged_in_for_plugin] = {:value=>'true',:expires => 30.days.from_now,:domain => ActionController::Base.session[:domain]}
-  end
-
-  def delete_logged_in_for_plugin_token
-    cookies.delete :logged_in_for_plugin
+    cookies[:logged_in_for_plugin] = {:value=>true,:expires => 30.days.from_now,:domain=>'2010.mindpin.com'}
   end
 end
